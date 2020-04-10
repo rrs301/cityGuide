@@ -7,16 +7,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide>
-     <img src="https://www.brownweinraub.com/wp-content/uploads/2017/09/placeholder.jpg" style="height: height: 200px;;">
+  <ion-slides pager="true" [options]="slideOpts" >
+    <ion-slide *ngFor="let slide of slider">
+     <img src="{{slide.image}}" style="height:200px;">
     </ion-slide>
-    <ion-slide>
-      <img src="https://www.brownweinraub.com/wp-content/uploads/2017/09/placeholder.jpg" style="height: height: 200px;;">
-     </ion-slide>
-     <ion-slide>
-      <img src="https://www.brownweinraub.com/wp-content/uploads/2017/09/placeholder.jpg" style="height: height: 200px;;">
-     </ion-slide>
+   
   </ion-slides>
 
   <div>
@@ -24,13 +19,17 @@
     <ion-grid>
       <ion-row class="category_row" *ngFor="let row of cat_row">
         <ion-col style="margin: -15px;"  *ngFor="let cat of loop;let i = index">
-         <ion-card>
+         <ion-card *ngIf="MainCategoryData[i+row].name" style="margin-top: 11px;" (click)="NextScreen(MainCategoryData[i+row].id,MainCategoryData[i+row].subcat)">
            <div>
-            <img src="https://image.flaticon.com/icons/svg/2082/2082600.svg" style="height: 51px;
+            <img src="{{MainCategoryData[i+row].image}}" style="height: 51px;
             margin-top: 13px;">
            </div>
            
-           <p style="font-family: raleway;">{{MainCategoryData[i+row].name}}</p>
+           <p style="font-family: raleway;overflow: hidden;
+           text-overflow: ellipsis;
+           white-space: nowrap;
+           margin-left: 5px;
+    margin-right: 5px;">{{MainCategoryData[i+row].name}}</p>
          </ion-card>
         </ion-col >
         <!-- <ion-col style="margin: -15px;">
