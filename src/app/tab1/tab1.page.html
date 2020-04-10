@@ -7,11 +7,53 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+     <img src="https://www.brownweinraub.com/wp-content/uploads/2017/09/placeholder.jpg" style="height: height: 200px;;">
+    </ion-slide>
+    <ion-slide>
+      <img src="https://www.brownweinraub.com/wp-content/uploads/2017/09/placeholder.jpg" style="height: height: 200px;;">
+     </ion-slide>
+     <ion-slide>
+      <img src="https://www.brownweinraub.com/wp-content/uploads/2017/09/placeholder.jpg" style="height: height: 200px;;">
+     </ion-slide>
+  </ion-slides>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div>
+    <h3 style="font-family: raleway;margin-left: 25px;">How can we help you</h3>
+    <ion-grid>
+      <ion-row class="category_row" *ngFor="let row of cat_row">
+        <ion-col style="margin: -15px;"  *ngFor="let cat of loop;let i = index">
+         <ion-card>
+           <div>
+            <img src="https://image.flaticon.com/icons/svg/2082/2082600.svg" style="height: 51px;
+            margin-top: 13px;">
+           </div>
+           
+           <p style="font-family: raleway;">{{MainCategoryData[i+row].name}}</p>
+         </ion-card>
+        </ion-col >
+        <!-- <ion-col style="margin: -15px;">
+          <ion-card>
+            <div>
+              <img src="https://image.flaticon.com/icons/svg/2082/2082600.svg" style="height: 51px;
+              margin-top: 13px;">
+            </div>
+            <p>Plumbing</p>
+          </ion-card>
+        </ion-col > -->
+        <!-- <ion-col style="margin: -15px;">
+          <ion-card>
+            <div>
+              <img src="https://image.flaticon.com/icons/svg/2082/2082600.svg" style="height: 51px;
+              margin-top: 13px;">
+            </div>
+            <p>Plumbing</p>
+          </ion-card>
+        </ion-col> -->
+        
+      </ion-row>
+      
+      </ion-grid>
+  </div>
 </ion-content>
