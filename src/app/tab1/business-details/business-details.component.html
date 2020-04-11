@@ -1,9 +1,42 @@
 
 <ion-content>
 <div *ngFor="let data of BusinessDetail">
-  <img src="{{data.image}}" style="height: height: 250px;">
+  <div class="uk-text-center">
+    <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+        <img src="{{data.image}}" alt="">
+        <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default">
+          <p class="uk-h4 uk-margin-remove">{{data.name}}</p>
+      </div>
+    </div>
+   
+</div>
+  
   <div style="margin: 17px;">
-    <h2>{{data.name}}</h2>
+    <h2>{{data.name}}<span style="    float: right;
+      font-size: 16px;
+      /* background: #673AB7; */
+      padding: 7px;
+      color: white;
+      padding-left: 10px;
+      border-radius: 21px;
+      padding-right: 10px;
+      font-family: raleway;
+      background-image: linear-gradient(to right, rgb(47, 172, 255) 0%, rgb(61, 47, 255) 100%);
+  "><ion-icon name="share-social" style="margin-right: 10px;"></ion-icon>Share</span></h2>
+
+<h5><span
+  style=" 
+font-size: 16px;
+
+padding: 7px;
+color: white;
+padding-left: 10px;
+border-radius: 21px;
+padding-right: 10px;
+font-family: raleway;
+background-image: linear-gradient(to right, #FF512F 0%, #FF512F 100%);
+"><ion-icon name="copy" style="margin-right: 10px;"></ion-icon>{{catName}}
+</span></h5>
     <h4 style="text-decoration: underline;">
       Description
     </h4>

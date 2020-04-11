@@ -10,12 +10,13 @@ import { AppAPIService } from 'src/app/app-api.service';
 export class BusinessDetailsComponent implements OnInit {
 
   BusinessDetail:any=[];
+  catName:string;
   constructor(private route:ActivatedRoute,private api:AppAPIService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.api.showLoader();
-      
+      this.catName=params['catName'];
       this.getBusinessById(params['id']);
    
       this.api.dismissLoader();

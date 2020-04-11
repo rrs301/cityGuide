@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
 export class BusinessListComponent implements OnInit {
 
   BusinessList:any=[];
+  catName:string;
+  addressInput:string;
   constructor(private api:AppAPIService,private route:ActivatedRoute,private router:Router) {
 
    }
@@ -19,7 +21,7 @@ export class BusinessListComponent implements OnInit {
   ngOnInit() {
   this.route.queryParams.subscribe(params => {
       this.api.showLoader();
-      
+      this.catName=params['catName'];
       this.getBusinessList(params['cid']);
    
       this.api.dismissLoader();
@@ -40,9 +42,16 @@ export class BusinessListComponent implements OnInit {
     console.log(id);
     this.router.navigate(['BusinessDetails'],{
       queryParams:{
-        id:id
+        id:id,
+        catName:this.catName,
       }
     })
+  }
+
+  changed(event:any)
+  {
+    console.log(this.addressInput);
+    console.log(event.target.value);
   }
 
 //   getGeoLocation(address: string): Observable<any> {

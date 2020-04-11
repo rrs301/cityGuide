@@ -33,12 +33,13 @@ export class SubCategoryComponent implements OnInit {
       })
   }
 
-  BusinessList(id:any)
+  BusinessList(id:any,catName:string)
   {
     let cid="sc"+id;
     this.router.navigate(['BusinessList'],{
       queryParams:{
-        cid:cid
+        cid:cid,
+        catName:catName
       }
     })
     

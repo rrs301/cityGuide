@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
 <ion-list  *ngFor="let subcat of SubCatList">
-  <ion-item (click)="BusinessList(subcat.id)">
+  <ion-item (click)="BusinessList(subcat.id,subcat.name)">
     <img src="{{subcat.image}}" style="height: 50px;
     margin: 10px;">
     <ion-label>{{subcat.name}}</ion-label>

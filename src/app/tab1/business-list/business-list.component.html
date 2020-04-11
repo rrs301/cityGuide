@@ -12,7 +12,11 @@
       <div class="uk-navbar-item" style=" min-height: 50px;">
           <form class="uk-search uk-search-navbar">
               <span uk-search-icon></span>
-              <input class="uk-search-input" type="search" placeholder="Search..." style=" font-size: 20px;">
+              <input class="uk-search-input" type="search" name='addressInput' 
+              [(ngModel)]="addressInput"
+              (change)="changed($event)"
+              
+              placeholder="Search..." style=" font-size: 20px;">
           </form>
       </div>
 
