@@ -1,21 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar  color="medium">
     <ion-title>
-      Tab 1
+      Home
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-slides pager="true" [options]="slideOpts" >
-    <ion-slide *ngFor="let slide of slider">
-     <img src="{{slide.image}}" style="height:200px;">
-    </ion-slide>
-   
-  </ion-slides>
+  
+  <div class="topHeader">
+<p style="font-size: 15px;
+margin-left: 36px;
+font-family: raleway;    padding-top: 23px;
+">Location</p>
+<p style="font-size: 20px;
+margin-left: 10px;
+font-family: raleway;
+margin-top: -22px;"> <ion-icon name="location-outline" style="margin-right: 5px;"></ion-icon>Pune,India</p>
+  </div>
+  <div style="margin-top: -30%;">
+    <h3 style="font-family: raleway;margin-left: 25px;font-size: 30px;    color: white;">How can we <br>help you Today?</h3>
+    <!-- <ion-searchbar style="padding: 22px;    "></ion-searchbar> -->
+    <ion-card>
+      <div class="uk-navbar-left">
+        <div class="uk-navbar-item" style=" min-height: 50px;">
+            <form class="uk-search uk-search-navbar">
+                <span uk-search-icon></span>
+                <input class="uk-search-input" type="search" placeholder="Search..." style=" font-size: 20px;">
+            </form>
+        </div>
 
+    </div>
+    </ion-card>
+   
+  </div>
+  
   <div>
-    <h3 style="font-family: raleway;margin-left: 25px;">How can we help you</h3>
+    
     <ion-grid>
       <ion-row class="category_row" *ngFor="let row of cat_row">
         <ion-col style="margin: -15px;"  *ngFor="let cat of loop;let i = index">
@@ -55,4 +76,11 @@
       
       </ion-grid>
   </div>
+  <br>
+  <ion-slides pager="true" [options]="slideOpts" >
+    <ion-slide *ngFor="let slide of slider">
+     <img src="{{slide.image}}" style="height:200px;">
+    </ion-slide>
+   
+  </ion-slides>
 </ion-content>

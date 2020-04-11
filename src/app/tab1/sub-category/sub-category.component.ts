@@ -33,6 +33,11 @@ export class SubCategoryComponent implements OnInit {
       })
   }
 
+  BusinessList(id:any)
+  {
+    console.log(id);
+  }
+
   
 
 }

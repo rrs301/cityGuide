@@ -1,14 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Sub Category
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 <ion-list  *ngFor="let subcat of SubCatList">
-  <ion-item>
+  <ion-item (click)="BusinessList(subcat.id)">
     <img src="{{subcat.image}}" style="height: 50px;
     margin: 10px;">
     <ion-label>{{subcat.name}}</ion-label>
