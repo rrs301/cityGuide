@@ -1,0 +1,46 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sub Category
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <div class="uk-navbar-left">
+      <div class="uk-navbar-item" style=" min-height: 50px;">
+          <form class="uk-search uk-search-navbar">
+              <span uk-search-icon></span>
+              <input class="uk-search-input" type="search" placeholder="Search..." style=" font-size: 20px;">
+          </form>
+      </div>
+
+  </div>
+  </ion-card>
+  <div *ngFor="let data of BusinessList">
+
+ 
+<ion-card (click)="BusinessDetail(data.id)">
+  <ion-row>
+    <ion-col size=5>
+      <div>
+        <img src="{{data.image}}" style="    margin: -5px;height: 119px;
+        width: 156px;">
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        <h4 style="margin-top: 0px; font-family: raleway;font-weight: bold;">{{data.name}}</h4>
+      </div>
+      <div>
+        <h5 style="color: #8f8d8c; font-family: raleway;
+       ">{{data.address}}</h5>
+      </div>
+    </ion-col>
+  </ion-row>
+
+ 
+</ion-card>
+</div>
+</ion-content>

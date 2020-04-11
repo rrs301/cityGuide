@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppAPIService } from '../app-api.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tab1',
@@ -30,7 +31,8 @@ export class Tab1Page implements OnInit {
   getMainCategory()
   {
     this.appApi.getMainCategory().subscribe(data=>{
-      this.appApi.showLoader();
+      Swal.fire('Please wait...')
+      Swal.showLoading()
       this.MainCategoryData=data;
       console.log(this.MainCategoryData);
       let tempData=this.MainCategoryData.length/3;
@@ -43,7 +45,7 @@ export class Tab1Page implements OnInit {
           flag+=3;
       }
       console.log(this.cat_row);
-      this.appApi.dismissLoader();
+      Swal.close();
       //this.cat_row.push(this.MainCategoryData/3)
     });
 

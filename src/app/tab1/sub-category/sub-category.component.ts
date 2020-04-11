@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppAPIService } from 'src/app/app-api.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class SubCategoryComponent implements OnInit {
 
   cid:any;
   SubCatList:any=[];
-  constructor(private route:ActivatedRoute,private api:AppAPIService) 
+  constructor(private route:ActivatedRoute,private api:AppAPIService,private router:Router) 
   {
  
    }
@@ -23,7 +23,7 @@ export class SubCategoryComponent implements OnInit {
       this.getSubCategory(this.cid);
       this.api.dismissLoader();
   });
-  console.log(this.cid);
+ // console.log(this.cid);
   }
 
   getSubCategory(cid:any)
@@ -35,7 +35,13 @@ export class SubCategoryComponent implements OnInit {
 
   BusinessList(id:any)
   {
-    console.log(id);
+    let cid="00"+id;
+    this.router.navigate(['BusinessList'],{
+      queryParams:{
+        cid:cid
+      }
+    })
+    
   }
 
   
