@@ -35,7 +35,7 @@ export class SubCategoryComponent implements OnInit {
 
   BusinessList(id:any)
   {
-    let cid="00"+id;
+    let cid="sc"+id;
     this.router.navigate(['BusinessList'],{
       queryParams:{
         cid:cid

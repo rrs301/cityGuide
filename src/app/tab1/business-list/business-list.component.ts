@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppAPIService } from 'src/app/app-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-business-list',
@@ -39,8 +40,26 @@ export class BusinessListComponent implements OnInit {
     console.log(id);
     this.router.navigate(['BusinessDetails'],{
       queryParams:{
-        cid:id
+        id:id
       }
     })
   }
+
+//   getGeoLocation(address: string): Observable<any> {
+//     console.log('Getting address: ', address);
+//     let geocoder = new google.maps.Geocode();
+//     return Observable.create(observer => {
+//         geocoder.geocode({
+//             'address': address
+//         }, (results, status) => {
+//             if (status == google.maps.GeocoderStatus.OK) {
+//                 observer.next(results[0].geometry.location);
+//                 observer.complete();
+//             } else {
+//                 console.log('Error: ', results, ' & Status: ', status);
+//                 observer.error();
+//             }
+//         });
+//     });
+// }
 }
