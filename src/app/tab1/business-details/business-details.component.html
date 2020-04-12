@@ -66,16 +66,18 @@ background-image: linear-gradient(to right, #FF512F 0%, #FF512F 100%);
   
   </div>
   </ion-content>
-  <ion-footer style="height">
+  <ion-footer style="height:7%">
    <ion-row>
      <ion-col>
-      <ion-button color="primary" expand="full">
+      <ion-button color="primary" expand="full" (click)="Call(BusinessDetail[0].mobile)">
         <ion-icon name="call"  style="margin-right: 10px;"></ion-icon>
         Call</ion-button>
      </ion-col>
      <ion-col> 
-      <ion-button color="success" expand="full">
-        <ion-icon name="logo-whatsapp" style="margin-right: 10px;"></ion-icon>
+      <ion-button color="success" expand="full" (click)="whatsApp(BusinessDetail[0].whatsapp)"
+      >
+        <ion-icon name="logo-whatsapp" style="margin-right: 10px;"
+        ></ion-icon>
         Message</ion-button>
      </ion-col>
    </ion-row>
