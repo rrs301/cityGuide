@@ -20,7 +20,7 @@ export class BusinessListComponent implements OnInit {
 
   ngOnInit() {
   this.route.queryParams.subscribe(params => {
-      this.api.showLoader();
+      
       this.catName=params['catName'];
       this.getBusinessList(params['cid']);
    
@@ -40,7 +40,7 @@ export class BusinessListComponent implements OnInit {
   BusinessDetail(id:any)
   {
     console.log(id);
-    this.router.navigate(['BusinessDetails'],{
+    this.router.navigate(['businessDetails'],{
       queryParams:{
         id:id,
         catName:this.catName,

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,5 +11,31 @@ export class AppAPIService {
   getMainCategory()
   {
     return this.http.get("http://playbox99.com/CityGuide/GetMainCategory.php");
+  }
+  getSubCategory(cid:any)
+  {
+    return this.http.get("http://playbox99.com/CityGuide/GetSubCategory.php?cid="+cid);
+  }
+  getBusinessList(cid:any)
+  {
+    return this.http.get("http://playbox99.com/CityGuide/GetBusinessList.php?cid="+cid);
+  }
+  getBusineesById(id:any)
+  {
+    return this.http.get("http://playbox99.com/CityGuide/getBusinessById.php?id="+id);
+  }
+  getSlider()
+  {
+    return this.http.get("http://playbox99.com/CityGuide/GetSlider.php");
+
+  }
+  showLoader()
+  {
+    swal.showLoading();
+  
+  }
+  dismissLoader()
+  {
+    swal.close();
   }
 }

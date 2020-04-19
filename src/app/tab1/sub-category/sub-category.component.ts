@@ -18,10 +18,10 @@ export class SubCategoryComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.api.showLoader();
+     
       this.cid = params['cid'];
       this.getSubCategory(this.cid);
-      this.api.dismissLoader();
+     
   });
  // console.log(this.cid);
   }
@@ -36,7 +36,7 @@ export class SubCategoryComponent implements OnInit {
   BusinessList(id:any,catName:string)
   {
     let cid="sc"+id;
-    this.router.navigate(['BusinessList'],{
+    this.router.navigate(['businessList'],{
       queryParams:{
         cid:cid,
         catName:catName
