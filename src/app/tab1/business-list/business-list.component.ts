@@ -14,6 +14,7 @@ export class BusinessListComponent implements OnInit {
   BusinessList:any=[];
   catName:string;
   addressInput:string;
+  businessListFilter:any=[];
   constructor(private api:AppAPIService,private route:ActivatedRoute,private router:Router) {
 
    }
@@ -47,6 +48,26 @@ export class BusinessListComponent implements OnInit {
       }
     })
   }
+
+  // filterList(evt) {
+  //   console.log("Here");
+  //     const searchTerm = evt.srcElement.value;
+    
+  //     if (!searchTerm) {
+  //       return;
+  //     }
+    
+  //     this.businessListFilter = this.BusinessList.filter(data => {
+  //       console.log(data);
+  //       if (data.address && searchTerm) {
+  //         if (data.address.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
+  //           return true;
+  //         }
+  //         return false;
+  //       }
+  //     });
+  //    // this.AllSubCatFilter.subscribe(console.log);
+  //   }
 
   changed(event:any)
   {

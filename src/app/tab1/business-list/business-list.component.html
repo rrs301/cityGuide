@@ -1,14 +1,14 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
     <ion-title>
-      Sub Category
+      {{catName}}
     </ion-title>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-card>
-    <div class="uk-navbar-left">
+    <!-- <div class="uk-navbar-left">
       <div class="uk-navbar-item" style=" min-height: 50px;">
           <form class="uk-search uk-search-navbar">
               <span uk-search-icon></span>
@@ -20,8 +20,22 @@
           </form>
       </div>
 
-  </div>
+  </div> -->
+  <!-- <ion-searchbar
+    showcancelbutton=""
+    (input)="filterList($event)"
+    placeholder="Ex.Mobile Repair"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let data of businessListFilter">
+      <ion-label (click)="BusinessList(data.id,data.name)">
+        {{data.address}}</ion-label>
+    </ion-item>
+  </ion-list> -->
   </ion-card>
+
+     
+      
+ 
   <div *ngFor="let data of BusinessList">
 
  
@@ -35,12 +49,13 @@
     </ion-col>
     <ion-col>
       <div>
-        <h4 style="margin-top: 0px; font-family: raleway;font-weight: bold;">{{data.name}}</h4>
+        <!-- <h4 >{{data.name}}</h4> -->
+        <ion-label style="margin-top: 0px; font-family: raleway;font-weight: bold;font-size:18px">{{data.name}}</ion-label>
       </div>
       <div>
-        <h5 style="color: #8f8d8c; font-family: raleway;overflow: hidden;
+        <ion-label style=" font-family: raleway;overflow: hidden;
         max-height: 3.6em;
-       ">{{data.address}}</h5>
+       ">{{data.address}}</ion-label>
       </div>
     </ion-col>
   </ion-row>

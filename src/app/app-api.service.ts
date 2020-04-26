@@ -10,25 +10,31 @@ export class AppAPIService {
 
   getMainCategory()
   {
-    return this.http.get("http://playbox99.com/CityGuide/GetMainCategory.php");
+    return this.http.get("https://playbox99.com/CityGuide/GetMainCategory.php");
   }
   getSubCategory(cid:any)
   {
-    return this.http.get("http://playbox99.com/CityGuide/GetSubCategory.php?cid="+cid);
+    return this.http.get("https://playbox99.com/CityGuide/GetSubCategory.php?cid="+cid);
   }
   getBusinessList(cid:any)
   {
-    return this.http.get("http://playbox99.com/CityGuide/GetBusinessList.php?cid="+cid);
+    return this.http.get("https://playbox99.com/CityGuide/GetBusinessList.php?cid="+cid);
   }
   getBusineesById(id:any)
   {
-    return this.http.get("http://playbox99.com/CityGuide/getBusinessById.php?id="+id);
+    return this.http.get("https://playbox99.com/CityGuide/getBusinessById.php?id="+id);
   }
   getSlider()
   {
-    return this.http.get("http://playbox99.com/CityGuide/GetSlider.php");
+    return this.http.get("https://playbox99.com/CityGuide/GetSlider.php");
 
   }
+
+  getAddress()
+  {
+    return this.http.get("http://www.ip-api.com/json");
+  }
+ 
   showLoader()
   {
     swal.showLoading();

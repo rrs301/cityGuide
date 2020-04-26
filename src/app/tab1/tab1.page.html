@@ -12,17 +12,17 @@
 <p style="font-size: 15px;
 margin-left: 36px;
 font-family: raleway;    padding-top: 23px;
-">Location</p>
+">Your Location</p>
 <p style="font-size: 20px;
 margin-left: 10px;
 font-family: raleway;
-margin-top: -22px;"> <ion-icon name="location-outline" style="margin-right: 5px;"></ion-icon>Pune,India</p>
+margin-top: -22px;"> <ion-icon name="location-outline" style="margin-right: 5px;"></ion-icon>{{UserAddress.city}},{{UserAddress.region}}</p>
   </div>
   <div style="margin-top: -30%;">
     <h3 style="font-family: raleway;margin-left: 25px;font-size: 30px;    color: white;">How can we <br>help you Today?</h3>
     <!-- <ion-searchbar style="padding: 22px;    "></ion-searchbar> -->
-    <ion-card>
-      <div class="uk-navbar-left">
+   
+      <!-- <div class="uk-navbar-left">
         <div class="uk-navbar-item" style=" min-height: 50px;">
             <form class="uk-search uk-search-navbar">
                 <span uk-search-icon></span>
@@ -30,8 +30,20 @@ margin-top: -22px;"> <ion-icon name="location-outline" style="margin-right: 5px;
             </form>
         </div>
 
-    </div>
-    </ion-card>
+    </div> -->
+    <ion-searchbar
+    showcancelbutton=""
+    (input)="filterList($event)"
+    placeholder="Ex.Mobile Repair"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let data of AllSubCatFilter">
+      <ion-label (click)="BusinessList(data.id,data.name)">
+          <img src="{{data.image}}" style="height: 20px;
+          margin: 7px;">
+        {{data.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+  
    
   </div>
   
@@ -76,7 +88,8 @@ margin-top: -22px;"> <ion-icon name="location-outline" style="margin-right: 5px;
       
       </ion-grid>
   </div>
-  <br>
+
+  <p style="text-align: center;"><ion-label style="font-family: raleway;">Advertise Here</ion-label></p>
   <ion-slides pager="true" [options]="slideOpts" >
     <ion-slide *ngFor="let slide of slider">
      <img src="{{slide.image}}" style="height:200px;">

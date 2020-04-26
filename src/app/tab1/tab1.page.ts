@@ -17,7 +17,9 @@ export class Tab1Page implements OnInit {
   cat_row=[];
   loop=[0,1,2];
   slider:any=[];
-  
+  AllSubCat:any=[];  
+  AllSubCatFilter:any=[];
+  UserAddress:any=[];
   constructor(public appApi:AppAPIService,private route:Router) {
   //  this.getMainCategory();
   }
@@ -27,6 +29,13 @@ export class Tab1Page implements OnInit {
     
     this.getMainCategory();
     this.getSlider();
+    this.getAddress();
+  }
+  getAddress()
+  {
+    this.appApi.getAddress().subscribe(data=>{
+      this.UserAddress=data;
+    })
   }
   getMainCategory()
   {
@@ -48,6 +57,10 @@ export class Tab1Page implements OnInit {
       Swal.close();
       //this.cat_row.push(this.MainCategoryData/3)
     });
+
+    this.appApi.getSubCategory("0").subscribe(data=>{
+        this.AllSubCat=data;
+    })
 
   }
 
@@ -74,6 +87,36 @@ export class Tab1Page implements OnInit {
 
     }
     
+    filterList(evt) {
+    console.log("Here");
+      const searchTerm = evt.srcElement.value;
+    
+      if (!searchTerm) {
+        return;
+      }
+    
+      this.AllSubCatFilter = this.AllSubCat.filter(data => {
+        console.log(data);
+        if (data.name && searchTerm) {
+          if (data.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
+            return true;
+          }
+          return false;
+        }
+      });
+     // this.AllSubCatFilter.subscribe(console.log);
+    }
 
+    BusinessList(id:any,catName:string)
+    {
+      let cid="sc"+id;
+      this.route.navigate(['businessList'],{
+        queryParams:{
+          cid:cid,
+          catName:catName
+        }
+      })
+      
+    }
 
 }

@@ -39,6 +39,8 @@ export class BusinessDetailsComponent implements OnInit {
     //   this.callNumber.callNumber(mobile, true)
     // .then(res => console.log('Launched dialer!', res))
     // .catch(err => console.log('Error launching dialer', err));
+
+    window.open("tel:"+mobile, "_blank");
   }
   shareBtn() {
     // Check if sharing via email is supported

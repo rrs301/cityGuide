@@ -13,14 +13,17 @@ import { SubCategoryComponent } from './tab1/sub-category/sub-category.component
 import { BusinessListComponent } from './tab1/business-list/business-list.component';
 import { BusinessDetailsComponent } from './tab1/business-details/business-details.component';
 import { FormsModule } from '@angular/forms';
-import { BusinessDetailsInfoComponent } from './tab1/business-details-info/business-details-info.component';
+
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent,SubCategoryComponent,BusinessListComponent,BusinessDetailsComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule,
-    HttpClientModule],
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     StatusBar,
     SplashScreen,

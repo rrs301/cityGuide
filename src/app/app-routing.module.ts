@@ -3,7 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { SubCategoryComponent } from './tab1/sub-category/sub-category.component';
 import { BusinessListComponent } from './tab1/business-list/business-list.component';
 import { BusinessDetailsComponent } from './tab1/business-details/business-details.component';
-import { BusinessDetailsInfoComponent } from './tab1/business-details-info/business-details-info.component';
 
 const routes: Routes = [
   {
