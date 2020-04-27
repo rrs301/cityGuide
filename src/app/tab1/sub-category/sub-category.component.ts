@@ -28,9 +28,12 @@ export class SubCategoryComponent implements OnInit {
 
   getSubCategory(cid:any)
   {
+    this.api.showLoader();
       this.api.getSubCategory(cid).subscribe(data=>{
           this.SubCatList=data;
+          this.api.dismissLoader();
       })
+     
   }
 
   BusinessList(id:any,catName:string)

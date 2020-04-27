@@ -20,6 +20,7 @@ export class BusinessListComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.api.showLoader();
   this.route.queryParams.subscribe(params => {
       
       this.catName=params['catName'];

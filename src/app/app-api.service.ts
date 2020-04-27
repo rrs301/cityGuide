@@ -32,9 +32,13 @@ export class AppAPIService {
 
   getAddress()
   {
-    return this.http.get("http://www.ip-api.com/json");
+    return this.http.get("https://playbox99.com/CityGuide/getLocation.php");
   }
  
+  getSettingList()
+  {
+    return this.http.get("https://playbox99.com/CityGuide/getSettings.php")
+  }
   showLoader()
   {
     swal.showLoading();
@@ -43,5 +47,20 @@ export class AppAPIService {
   dismissLoader()
   {
     swal.close();
+  }
+  ShowWelcomePopup()
+  {
+    this.http.get("http://playbox99.com/CityGuide/getPopUpImage.php").subscribe(data=>{
+    console.log(data);
+      swal.fire({
+        title: data[0].title,
+        text: data[0].text,
+        imageUrl: data[0].image,
+        imageWidth: 400,
+        imageHeight: 400,
+        imageAlt: 'Custom image',
+      })
+    })
+    
   }
 }

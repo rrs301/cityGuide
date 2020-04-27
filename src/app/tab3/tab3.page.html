@@ -1,17 +1,23 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Tab 3
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    <div class="topHeader">
+        <h3 style="font-family: raleway;margin-left: 25px;font-size: 30px;      padding-top: 34%;
+        margin-top: 0px;    color: white;">
+          Profile <br>Settings/More</h3>
+      </div>
+    <ion-list  *ngFor="let setting of settings">
+        <ion-item (click)="OpenSetting(setting.url)" style="margin-top: -6px;">
+          <img src="{{setting.image}}" style="height: 40px;
+          margin: 10px;">
+          <ion-label style="font-size:s16px">{{setting.name}}</ion-label>
+        </ion-item>
+      </ion-list>
 </ion-content>

@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 @NgModule({
   declarations: [AppComponent,SubCategoryComponent,BusinessListComponent,BusinessDetailsComponent],
   entryComponents: [],
@@ -28,6 +28,7 @@ import { environment } from '../environments/environment';
     StatusBar,
     SplashScreen,
     SocialSharing,
+    OneSignal,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

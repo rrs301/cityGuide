@@ -1,3 +1,12 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+
+.topHeader{
+  color: white;
+  font-size: 50px;
+  height: 250px;
+  
+  background: linear-gradient(rgba(50, 4, 253, 0.9), rgba(153, 7, 250, 0.9)), url(https://image.freepik.com/free-photo/manual-tool-set-set-wooden-floor_1150-15367.jpg) no-repeat top center
+
+}

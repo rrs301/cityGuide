@@ -26,22 +26,35 @@ export class Tab1Page implements OnInit {
 
   ngOnInit(): void {
     
-    
+    this.appApi.showLoader();
     this.getMainCategory();
     this.getSlider();
     this.getAddress();
+    this.appApi.dismissLoader();
+
+    setTimeout(()=>(this.appApi.ShowWelcomePopup(),200000))
+    
   }
   getAddress()
   {
     this.appApi.getAddress().subscribe(data=>{
       this.UserAddress=data;
     })
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.showPosition);
+  } else {
+      alert("Geolocation is not supported by this browser.");
+   }
   }
+ showPosition(position) {
+    console.log("Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude); 
+ }
   getMainCategory()
   {
     this.appApi.getMainCategory().subscribe(data=>{
-      Swal.fire('Please wait...')
-      Swal.showLoading()
+      
       this.MainCategoryData=data;
       console.log(this.MainCategoryData);
       let tempData=this.MainCategoryData.length/3;
@@ -54,7 +67,7 @@ export class Tab1Page implements OnInit {
           flag+=3;
       }
       console.log(this.cat_row);
-      Swal.close();
+     
       //this.cat_row.push(this.MainCategoryData/3)
     });
 
@@ -90,8 +103,9 @@ export class Tab1Page implements OnInit {
     filterList(evt) {
     console.log("Here");
       const searchTerm = evt.srcElement.value;
-    
+      
       if (!searchTerm) {
+        this.AllSubCatFilter.length=0;
         return;
       }
     
@@ -101,6 +115,7 @@ export class Tab1Page implements OnInit {
           if (data.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
             return true;
           }
+        
           return false;
         }
       });
