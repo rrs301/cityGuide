@@ -1,0 +1,59 @@
+<!-- <div style="text-align: center">
+
+  <img src="../assets/imgs/login.png" style="height: 225px;">
+</div> -->
+
+<!-- -->
+  
+    <ion-card style="    
+    margin-left: 15px;
+    margin-right: 15px;">
+<div style="text-align: center; margin-top: 30px" >
+    <img src="../assets/imgs/login.png" style="height: 160px;
+    width: 240px;"><br>
+<ion-label style="font-size: 23px;">Sign In with Your Phone Number</ion-label>
+<br>
+<br>
+<ion-label for="phone" style="font-size: 17px;">Phone Number</ion-label><br>
+
+<diV style="margin-bottom:30px;">
+
+
+<input type="text" [(ngModel)]="phoneNumber.country"  class="uk-input uk-form-width-small" placeholder="1"    maxlength="2" style="width: 15%;margin-right: 10px;">
+<input type="text" [(ngModel)]="phoneNumber.area"     class="uk-input uk-form-width-small" placeholder="949"  maxlength="3" style="width: 15%;
+margin-right: 10px;">
+<input type="text" [(ngModel)]="phoneNumber.prefix"   class="uk-input uk-form-width-small" placeholder="555"  maxlength="3" style="width: 15%;
+margin-right: 10px;">
+<input type="text" [(ngModel)]="phoneNumber.line"     class="uk-input uk-form-width-small" placeholder="5555" maxlength="4" style="width: 15%;
+margin-right: 10px;">
+</diV>
+
+<div style="  text-align: center;
+margin-left: 13%;" >
+    <div id="recaptcha-container" ></div>
+</div>
+
+
+<ion-button (click)="sendLoginCode()" full style="margin-top:20px">SMS Text Login Code</ion-button>
+<hr>
+<div *ngIf="windowRef.confirmationResult" class="enterVerficationCode">
+  <hr>
+  <ion-label for="code" color="success">Enter your Verification Code Here</ion-label><br>
+  <input type="text" name="code" class="uk-input uk-form-width-small" [(ngModel)]="verificationCode" style="margin-top: 13px;">
+
+  <ion-button (click)="verifyLoginCode()" style="margin-left: 20px;">Verify</ion-button>
+</div>
+
+</div>
+</ion-card>
+<!-- <div *ngIf="user">
+You have successfully logged in with your phone number!
+
+UserId: {{ user?.uid }}
+
+</div> -->
+
+
+  <!-- <ion-footer>
+      <ion-title style="font-size: 13px;">Developer By Rahul Sanap @2020</ion-title>
+  </ion-footer> -->

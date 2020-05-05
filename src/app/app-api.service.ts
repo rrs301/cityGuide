@@ -48,18 +48,26 @@ export class AppAPIService {
   {
     swal.close();
   }
+  getNews()
+  {
+     return this.http.get("https://newsapi.org/v2/top-headlines?country=in&apiKey=4f0fb2df2b4247aabf5f97478a749be4");
+  }
   ShowWelcomePopup()
   {
-    this.http.get("http://playbox99.com/CityGuide/getPopUpImage.php").subscribe(data=>{
+    this.http.get("https://playbox99.com/CityGuide/getPopUpImage.php").subscribe(data=>{
     console.log(data);
-      swal.fire({
-        title: data[0].title,
-        text: data[0].text,
-        imageUrl: data[0].image,
-        imageWidth: 400,
-        imageHeight: 400,
-        imageAlt: 'Custom image',
-      })
+    if(data)
+    {
+    
+    swal.fire({
+      title: data[0].title,
+      text: data[0].text,
+      imageUrl: data[0].image,
+      imageWidth: 400,
+      imageHeight: 400,
+      imageAlt: 'Custom image',
+    }) 
+    }
     })
     
   }

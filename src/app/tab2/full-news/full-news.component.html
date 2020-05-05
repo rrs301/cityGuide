@@ -1,0 +1,37 @@
+<div>
+  <img src='{{image}}'>
+  <div style="margin: 20px;font-family: raleway;">
+    <div>
+        <ion-label style="text-decoration: underline;">
+            {{author}}
+          </ion-label>
+          <br>
+        <ion-label style="font-size: 20px;
+        font-weight: bold;">
+            {{title}}
+          </ion-label>
+         
+          
+    </div>
+      
+      <br>
+      <div>
+          <ion-label>
+              {{description}}
+            </ion-label>
+      </div>
+      
+  </div>
+  <!-- <div style="text-align:center">
+      <ion-button> <ion-icon name="reader-outline" style="margin-right:10px"></ion-icon>Read Full News</ion-button>
+  </div> -->
+  
+</div>
+<ion-footer>
+  <ion-col>
+      <ion-button  expand="full" (click)="fullNews()"> <ion-icon name="reader-outline"  style="margin-right:10px"></ion-icon>Read Full News</ion-button>
+  
+      <ion-button color="success"  expand="full" (click)="ShareBtnActionSheet()"> <ion-icon name="share"   style="margin-right:10px"></ion-icon>Share</ion-button>
+  </ion-col>
+    
+  </ion-footer>

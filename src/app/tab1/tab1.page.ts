@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppAPIService } from '../app-api.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -20,20 +20,32 @@ export class Tab1Page implements OnInit {
   AllSubCat:any=[];  
   AllSubCatFilter:any=[];
   UserAddress:any=[];
-  constructor(public appApi:AppAPIService,private route:Router) {
+  constructor(public appApi:AppAPIService,private route:Router,private storage:Storage) {
   //  this.getMainCategory();
   }
 
   ngOnInit(): void {
-    
+   // this.checkLogin();
     this.appApi.showLoader();
     this.getMainCategory();
     this.getSlider();
     this.getAddress();
     this.appApi.dismissLoader();
 
-    setTimeout(()=>(this.appApi.ShowWelcomePopup(),200000))
+    setTimeout(()=>(this.appApi.ShowWelcomePopup(),20000))
     
+  }
+  checkLogin()
+  {
+    this.storage.get('UserLogin').then((val) => {
+      console.log('Your age is', val);
+      if(val!="true")
+      {
+        this.route.navigate(['userLogin']);
+      }
+      
+    });
+  //  this.storage.clear();
   }
   getAddress()
   {

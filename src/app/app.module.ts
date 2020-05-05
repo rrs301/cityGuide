@@ -18,11 +18,21 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
+
+import { AngularFireModule } from '@angular/fire';
+
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { IonicStorageModule } from '@ionic/storage';
+import { FullNewsComponent } from './tab2/full-news/full-news.component';
 @NgModule({
-  declarations: [AppComponent,SubCategoryComponent,BusinessListComponent,BusinessDetailsComponent],
+  declarations: [AppComponent,SubCategoryComponent,BusinessListComponent,BusinessDetailsComponent,UserLoginComponent,FullNewsComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule,
-    HttpClientModule,
+  imports: [BrowserModule, IonicModule.forRoot(), 
+    AppRoutingModule,FormsModule,
+    IonicStorageModule.forRoot(),
+    HttpClientModule,AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireMessagingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     StatusBar,
